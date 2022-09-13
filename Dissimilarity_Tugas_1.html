@@ -1,0 +1,1633 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TUGAS 1 &#8212; Task datamining</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tugas 2" href="Diskritisasi_Tugas_2.html" />
+    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Task datamining</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  INTRODUCTION
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TUGAS
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TUGAS 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Diskritisasi_Tugas_2.html">
+   Tugas 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Implementasi-KNN_Tugas_3.html">
+   Nearest Neighbors Classification
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/077nabila/datamining/gh-pages?urlpath=tree/_sources/Dissimilarity_Tugas_1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/077nabila/datamining/blob/gh-pages/_sources/Dissimilarity_Tugas_1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/077nabila/datamining"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/077nabila/datamining/issues/new?title=Issue%20on%20page%20%2FDissimilarity_Tugas_1.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Dissimilarity_Tugas_1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TUGAS 1</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-1">
+<h1>TUGAS 1<a class="headerlink" href="#tugas-1" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import library</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/077nabila/dataset/main/supermarket_sales%20-%20Sheet1.csv&quot;</span>
+
+<span class="n">n</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-ac0d787b-c14b-45a9-91f9-c9610d3194c0">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Invoice ID</th>
+      <th>Branch</th>
+      <th>City</th>
+      <th>Customer type</th>
+      <th>Gender</th>
+      <th>Product line</th>
+      <th>Unit price</th>
+      <th>Quantity</th>
+      <th>Tax 5%</th>
+      <th>Total</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Payment</th>
+      <th>cogs</th>
+      <th>gross margin percentage</th>
+      <th>gross income</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>750-67-8428</td>
+      <td>A</td>
+      <td>Yangon</td>
+      <td>Member</td>
+      <td>Female</td>
+      <td>Health and beauty</td>
+      <td>74.69</td>
+      <td>7</td>
+      <td>26.1415</td>
+      <td>548.9715</td>
+      <td>1/5/2019</td>
+      <td>13:08</td>
+      <td>Ewallet</td>
+      <td>522.83</td>
+      <td>4.761905</td>
+      <td>26.1415</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>226-31-3081</td>
+      <td>C</td>
+      <td>Naypyitaw</td>
+      <td>Normal</td>
+      <td>Female</td>
+      <td>Electronic accessories</td>
+      <td>15.28</td>
+      <td>5</td>
+      <td>3.8200</td>
+      <td>80.2200</td>
+      <td>3/8/2019</td>
+      <td>10:29</td>
+      <td>Cash</td>
+      <td>76.40</td>
+      <td>4.761905</td>
+      <td>3.8200</td>
+      <td>9.6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>631-41-3108</td>
+      <td>A</td>
+      <td>Yangon</td>
+      <td>Normal</td>
+      <td>Male</td>
+      <td>Home and lifestyle</td>
+      <td>46.33</td>
+      <td>7</td>
+      <td>16.2155</td>
+      <td>340.5255</td>
+      <td>3/3/2019</td>
+      <td>13:23</td>
+      <td>Credit card</td>
+      <td>324.31</td>
+      <td>4.761905</td>
+      <td>16.2155</td>
+      <td>7.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>123-19-1176</td>
+      <td>A</td>
+      <td>Yangon</td>
+      <td>Member</td>
+      <td>Male</td>
+      <td>Health and beauty</td>
+      <td>58.22</td>
+      <td>8</td>
+      <td>23.2880</td>
+      <td>489.0480</td>
+      <td>1/27/2019</td>
+      <td>20:33</td>
+      <td>Ewallet</td>
+      <td>465.76</td>
+      <td>4.761905</td>
+      <td>23.2880</td>
+      <td>8.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>373-73-7910</td>
+      <td>A</td>
+      <td>Yangon</td>
+      <td>Normal</td>
+      <td>Male</td>
+      <td>Sports and travel</td>
+      <td>86.31</td>
+      <td>7</td>
+      <td>30.2085</td>
+      <td>634.3785</td>
+      <td>2/8/2019</td>
+      <td>10:37</td>
+      <td>Ewallet</td>
+      <td>604.17</td>
+      <td>4.761905</td>
+      <td>30.2085</td>
+      <td>5.3</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>233-67-5758</td>
+      <td>C</td>
+      <td>Naypyitaw</td>
+      <td>Normal</td>
+      <td>Male</td>
+      <td>Health and beauty</td>
+      <td>40.35</td>
+      <td>1</td>
+      <td>2.0175</td>
+      <td>42.3675</td>
+      <td>1/29/2019</td>
+      <td>13:46</td>
+      <td>Ewallet</td>
+      <td>40.35</td>
+      <td>4.761905</td>
+      <td>2.0175</td>
+      <td>6.2</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>303-96-2227</td>
+      <td>B</td>
+      <td>Mandalay</td>
+      <td>Normal</td>
+      <td>Female</td>
+      <td>Home and lifestyle</td>
+      <td>97.38</td>
+      <td>10</td>
+      <td>48.6900</td>
+      <td>1022.4900</td>
+      <td>3/2/2019</td>
+      <td>17:16</td>
+      <td>Ewallet</td>
+      <td>973.80</td>
+      <td>4.761905</td>
+      <td>48.6900</td>
+      <td>4.4</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>727-02-1313</td>
+      <td>A</td>
+      <td>Yangon</td>
+      <td>Member</td>
+      <td>Male</td>
+      <td>Food and beverages</td>
+      <td>31.84</td>
+      <td>1</td>
+      <td>1.5920</td>
+      <td>33.4320</td>
+      <td>2/9/2019</td>
+      <td>13:22</td>
+      <td>Cash</td>
+      <td>31.84</td>
+      <td>4.761905</td>
+      <td>1.5920</td>
+      <td>7.7</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>347-56-2442</td>
+      <td>A</td>
+      <td>Yangon</td>
+      <td>Normal</td>
+      <td>Male</td>
+      <td>Home and lifestyle</td>
+      <td>65.82</td>
+      <td>1</td>
+      <td>3.2910</td>
+      <td>69.1110</td>
+      <td>2/22/2019</td>
+      <td>15:33</td>
+      <td>Cash</td>
+      <td>65.82</td>
+      <td>4.761905</td>
+      <td>3.2910</td>
+      <td>4.1</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>849-09-3807</td>
+      <td>A</td>
+      <td>Yangon</td>
+      <td>Member</td>
+      <td>Female</td>
+      <td>Fashion accessories</td>
+      <td>88.34</td>
+      <td>7</td>
+      <td>30.9190</td>
+      <td>649.2990</td>
+      <td>2/18/2019</td>
+      <td>13:28</td>
+      <td>Cash</td>
+      <td>618.38</td>
+      <td>4.761905</td>
+      <td>30.9190</td>
+      <td>6.6</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 17 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ac0d787b-c14b-45a9-91f9-c9610d3194c0')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-ac0d787b-c14b-45a9-91f9-c9610d3194c0 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-ac0d787b-c14b-45a9-91f9-c9610d3194c0');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show dataset shape</span>
+<span class="n">number_of_columns</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show all columns for dataset</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="n">number_of_columns</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="n">number_of_columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show all columns from dataframe</span>
+<span class="n">n</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Invoice ID&#39;, &#39;Branch&#39;, &#39;City&#39;, &#39;Customer type&#39;, &#39;Gender&#39;,
+       &#39;Product line&#39;, &#39;Unit price&#39;, &#39;Quantity&#39;, &#39;Tax 5%&#39;, &#39;Total&#39;, &#39;Date&#39;,
+       &#39;Time&#39;, &#39;Payment&#39;, &#39;cogs&#39;, &#39;gross margin percentage&#39;, &#39;gross income&#39;,
+       &#39;Rating&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">[[</span><span class="s2">&quot;Invoice ID&quot;</span><span class="p">,</span><span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-270baac8-d858-49d5-8fc2-8e31d1ef3bc8">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Invoice ID</th>
+      <th>City</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>750-67-8428</td>
+      <td>Yangon</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>226-31-3081</td>
+      <td>Naypyitaw</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>631-41-3108</td>
+      <td>Yangon</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>123-19-1176</td>
+      <td>Yangon</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>373-73-7910</td>
+      <td>Yangon</td>
+      <td>Male</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-270baac8-d858-49d5-8fc2-8e31d1ef3bc8')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-270baac8-d858-49d5-8fc2-8e31d1ef3bc8 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-270baac8-d858-49d5-8fc2-8e31d1ef3bc8');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># embark code</span>
+<span class="n">code_embark_for_cherbourg</span> <span class="o">=</span> <span class="s2">&quot;Femele&quot;</span>
+<span class="n">code_embark_for_southampton</span> <span class="o">=</span> <span class="s2">&quot;Male&quot;</span>
+
+<span class="c1"># binary value</span>
+<span class="n">value_of_one</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">value_of_zero</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">change_code_embark_to_biner</span><span class="p">(</span><span class="n">Gender</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">value_of_one</span> <span class="k">if</span> <span class="n">Gender</span> <span class="o">==</span> <span class="n">code_embark_for_southampton</span> <span class="k">else</span> <span class="n">value_of_zero</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update all values of &#39;Gender&#39; series</span>
+<span class="n">n</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="s2">&quot;Gender&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">change_code_embark_to_biner</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">[[</span><span class="s2">&quot;Invoice ID&quot;</span><span class="p">,</span><span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-d7c90395-1574-4b66-9d63-b279520bb9fc">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Invoice ID</th>
+      <th>City</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>750-67-8428</td>
+      <td>Yangon</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>226-31-3081</td>
+      <td>Naypyitaw</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>631-41-3108</td>
+      <td>Yangon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>123-19-1176</td>
+      <td>Yangon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>373-73-7910</td>
+      <td>Yangon</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d7c90395-1574-4b66-9d63-b279520bb9fc')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-d7c90395-1574-4b66-9d63-b279520bb9fc button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-d7c90395-1574-4b66-9d63-b279520bb9fc');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CONSTAN VARIABLE</span>
+<span class="n">DECREMENT_BY_ONE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INCREMENT_BY_ONE</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">CONTINGENCY_TABLE_VALUE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;q&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;r&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+    <span class="s2">&quot;s&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_series</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">series</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">idx</span><span class="p">),</span> <span class="n">series</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dissimilarity_dataset</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">series_index</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">series</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="n">first_series</span> <span class="o">=</span> <span class="n">get_series</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">series_index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">series</span><span class="p">)</span>
+    <span class="n">second_series</span> <span class="o">=</span> <span class="n">get_series</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">series_index</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">series</span><span class="p">)</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">first_series</span><span class="p">,</span><span class="n">second_series</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataset</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_dissimilarity_dataset</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Invoice ID&quot;</span><span class="p">,</span><span class="s2">&quot;City&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-74523c00-1299-42e6-a229-d3f517776849">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Invoice ID</th>
+      <td>226-31-3081</td>
+      <td>631-41-3108</td>
+    </tr>
+    <tr>
+      <th>City</th>
+      <td>Naypyitaw</td>
+      <td>Yangon</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-74523c00-1299-42e6-a229-d3f517776849')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-74523c00-1299-42e6-a229-d3f517776849 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-74523c00-1299-42e6-a229-d3f517776849');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-b61a8872-0c27-4ba9-9fd0-4333ba8d5eba">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Yangon</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Naypyitaw</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Yangon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Yangon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Yangon</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Naypyitaw</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b61a8872-0c27-4ba9-9fd0-4333ba8d5eba')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-b61a8872-0c27-4ba9-9fd0-4333ba8d5eba button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-b61a8872-0c27-4ba9-9fd0-4333ba8d5eba');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_contingency_value</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">start_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">last_index</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+
+    <span class="n">CONTINGENCY_VALUE</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;q&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;r&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;t&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">column_range</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">column_range</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">CONTINGENCY_TABLE_VALUE</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="nb">tuple</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">start_index</span><span class="p">):(</span><span class="n">last_index</span><span class="p">),</span> <span class="n">n</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">column</span><span class="p">]])</span> <span class="o">==</span> <span class="n">CONTINGENCY_TABLE_VALUE</span><span class="p">[</span><span class="n">value</span><span class="p">],</span> <span class="n">value</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;q&quot;</span><span class="p">:</span>
+                    <span class="n">CONTINGENCY_VALUE</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span>
+                    <span class="n">CONTINGENCY_VALUE</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span>
+                    <span class="n">CONTINGENCY_VALUE</span><span class="p">[</span><span class="s2">&quot;s&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span>
+                    <span class="n">CONTINGENCY_VALUE</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">CONTINGENCY_VALUE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># d(1,2)</span>
+<span class="n">d_1_2</span> <span class="o">=</span> <span class="n">get_dissimilarity_dataset</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_e_1_2</span> <span class="o">=</span> <span class="n">count_contingency_value</span><span class="p">(</span><span class="n">d_1_2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># d(1,3)</span>
+<span class="n">d_1_3</span> <span class="o">=</span> <span class="n">get_dissimilarity_dataset</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_e_1_3</span> <span class="o">=</span> <span class="n">count_contingency_value</span><span class="p">(</span><span class="n">d_1_3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># d(1,4)</span>
+<span class="n">d_1_4</span> <span class="o">=</span> <span class="n">get_dissimilarity_dataset</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_e_1_4</span> <span class="o">=</span> <span class="n">count_contingency_value</span><span class="p">(</span><span class="n">d_1_4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># d(1,5)</span>
+<span class="n">d_1_5</span> <span class="o">=</span> <span class="n">get_dissimilarity_dataset</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;City&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_e_1_5</span> <span class="o">=</span> <span class="n">count_contingency_value</span><span class="p">(</span><span class="n">d_1_5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>jarak</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">measure_dissimilarity_binary_value_assymetric_distance</span><span class="p">(</span><span class="n">contingency_value</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">contingency_value</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">contingency_value</span><span class="p">[</span><span class="s2">&quot;s&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">contingency_value</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">contingency_value</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">contingency_value</span><span class="p">[</span><span class="s2">&quot;s&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_1_2</span> <span class="o">=</span> <span class="n">measure_dissimilarity_binary_value_assymetric_distance</span><span class="p">(</span><span class="n">d_e_1_2</span><span class="p">)</span>
+<span class="n">d_1_3</span> <span class="o">=</span> <span class="n">measure_dissimilarity_binary_value_assymetric_distance</span><span class="p">(</span><span class="n">d_e_1_2</span><span class="p">)</span>
+<span class="n">d_1_4</span> <span class="o">=</span> <span class="n">measure_dissimilarity_binary_value_assymetric_distance</span><span class="p">(</span><span class="n">d_e_1_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_1_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_1_3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_1_4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="markdown-notebooks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Notebooks with MyST Markdown</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Diskritisasi_Tugas_2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tugas 2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nabila Regitasyari Irmawan<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
