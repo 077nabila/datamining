@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="UTS" href="UTS.html" />
+    <link rel="next" title="Gini Index - Decision Trees (Tugas 6)" href="Tugas_6.html" />
     <link rel="prev" title="Naive Bayes Classifier Tugas 4" href="Naive-Bayes-Classifier_Tugas_4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -167,8 +167,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_6.html">
+   Gini Index - Decision Trees (Tugas 6)
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="UTS.html">
    UTS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_8.html">
+   Studi Kasus-Messidor Fetures (Tugas 8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_9.html">
+   Studi Kasus-Credit Score (Tugas 9)
   </a>
  </li>
 </ul>
@@ -660,8 +675,8 @@ tujuan untuk meminimalisasikan fungsi objective yang telah di set dalam proses c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.66443351, -0.33029221],
-       [-2.64084076,  0.19051995],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2.64084076,  0.19051995],
+       [ 0.66443351, -0.33029221],
        [ 2.34645113,  0.27235455]])
 </pre></div>
 </div>
@@ -713,13 +728,13 @@ tujuan untuk meminimalisasikan fungsi objective yang telah di set dalam proses c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-       0, 0, 0, 0, 0, 0, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2,
-       2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 2, 2, 2,
-       2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2,
+       2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 2, 0, 2, 0, 2, 2, 0, 0, 2, 2, 2, 2,
+       2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 0])
 </pre></div>
 </div>
 </div>
@@ -732,7 +747,7 @@ tujuan untuk meminimalisasikan fungsi objective yang telah di set dalam proses c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8866666666666667
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.24
 </pre></div>
 </div>
 </div>
@@ -821,10 +836,10 @@ tujuan untuk meminimalisasikan fungsi objective yang telah di set dalam proses c
             <p class="prev-next-title">Naive Bayes Classifier Tugas 4</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="UTS.html" title="next page">
+    <a class='right-next' id="next-link" href="Tugas_6.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">UTS</p>
+        <p class="prev-next-title">Gini Index - Decision Trees (Tugas 6)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
